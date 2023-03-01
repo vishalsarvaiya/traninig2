@@ -1,0 +1,131 @@
+						first.js
+// var http = require('http');
+// http.createServer(function (req, res) {
+//   res.writeHead(200, {'Content-Type': 'text/html'});
+//   res.end('Hello vishal!');
+// }).listen(8080);
+
+                                //Buffer
+// var buf = Buffer.from('Hello, and welcome to Rome!');
+// console.log(buf.includes('welcome'));
+
+// var b = Buffer.from('b')
+// console.log(b)
+
+// var buf1 = Buffer.from('a');
+// var buf2 = Buffer.from('b');
+// var x = Buffer.compare(buf1, buf2);
+// console.log(x);
+
+
+                                                //fs             
+// var fs = require('fs');
+// fs.readFile('first.js', 'utf8' , function(err, data) {
+//   if (err) throw err;
+//   console.log(data);
+// });
+
+                                                //http
+// var http = require('http');
+// http.createServer(function (req, res) {
+//     res.writeHead(200, {'Content-Type': 'text/plain'});
+//     res.write('Hello World vishal!');
+//     res.end();
+// }).listen(8080);
+
+// var http = require('http');
+// var srvr = http.createServer(function (req, res) {
+//   res.write('Hello World!');
+//   res.end();
+// });
+// srvr.listen(8080);
+// srvr.close();
+
+// var http = require('http');
+// var srvr = http.createServer(function (req, res) {
+//   res.write('Hello World!');
+//   res.end();
+// });
+// srvr.listen(8080);
+// console.log(srvr.listening);
+// srvr.close();
+// console.log(srvr.listening);
+
+
+// var http = require('http');
+// var srvr = http.createServer(function (req, res) {
+//   res.write('Hello World! timeout');
+//   res.end();
+// });
+// srvr.listen(8080);
+// console.log(srvr.timeout);
+// srvr.timeout = 2000;
+// console.log(srvr.timeout);
+
+
+
+                                            //OS
+// var os = require('os');
+// console.log("Platform: " + os.platform());
+// console.log("architecture: " + os.arch());
+// console.log("cpu: " + os.cpus());
+// console.log("free memory: " + os.freemem());
+// console.log(": " + os.hostname());
+// console.log(": " + os.release());
+// console.log(": " + os.tmpdir());
+// console.log(": " + os.totalmem());
+// console.log(": " + os.type());
+// console.log(": " + os.uptime());
+// console.log(": " + os.userInfo());
+
+                                                //path
+// var path = require('path');
+// var filename = path.basename('/Users/Refsnes/demo_path.js');
+// console.log(filename);
+// console.log(filename.delimiter);
+// var directories = path.dirname('/Users/Refsnes/demo_path.js');
+// console.log(directories);
+
+
+// var x = path.normalize('Users/Refsnes/../Jackson');
+// console.log(x);
+
+
+// var x = path.join('Users', 'Refsnes', 'demo_path.js');
+// console.log(x);
+
+
+                                    //util
+// var util = require('util');
+// var txt = 'Congratulate %s on his %dth birthday!';
+// var result = util.format(txt, 'Linus', 6);
+// console.log(result);
+
+                                        //url
+// var http = require('http');
+// var url = require('url');
+// http.createServer(function (req, res) {
+//   res.writeHead(200, {'Content-Type': 'text/plain'});
+//   var q = url.parse(req.url, true);
+//   res.write(q.href);
+//   res.end();
+// }).listen(8080);
+              
+                                                //node module
+// var dt = require('./backend/mymodule');
+// var http = require('http');
+// http.createServer(function (req, res) {
+//   res.writeHead(200, {'Content-Type': 'text/html'});
+//   res.write(dt.myDateTime());
+//   res.end();
+// }).listen(8080);
+
+
+							mymodule.js
+
+exports.myDateTime = function () {
+    return "vishal Sarvaiya"+ Date();
+  };
+  
+              
+

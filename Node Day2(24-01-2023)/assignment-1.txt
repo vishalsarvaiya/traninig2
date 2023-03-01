@@ -1,0 +1,60 @@
+							Assignment-1.js
+import React, { useState } from "react";
+import axios from "axios";
+function Assignment1() {
+  const [n1, setn1] = useState("");
+  const [ans, setAns] = useState([]);
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios.post("http://localhost:8000",{ n1: n1 }).then((res) => {
+        console.log(res.data.ans); 
+        setAns(res.data.ans);
+      });
+  }
+  return (
+  <>
+    <form onSubmit={handleSubmit}>
+    <input type="text" id="number" name="n2" value={n1} onChange={(e) => { setn1(e.target.value) }} />
+    <input type="submit" value="Submit" />
+    </form>
+    {ans.length != 0 ? <div>{ans.map((data) => <p>{data}</p>)}</div> : <></>}
+  </>
+  )
+}
+export default Assignment1;
+
+
+							index.js
+const express = require('express');
+const app = express();
+const cors = require("cors");
+
+app.use(express.json());
+app.use(cors());
+
+app.post('/', (req, res) => {
+  console.log(req.body);
+  const ans = getPrimes(req.body.n1);
+  res.json({ ans });
+});
+
+app.listen(8000, () => {
+  console.log(`Server is running on port 8000.`);
+});
+
+function getPrimes(number) {
+  const ans = [];
+  for (let i = 2; i <= number; i++) {
+    let flag = 0;
+    for (let j = 2; j < i; j++) {
+      if (i % j == 0) {
+        flag = 1; break;
+      }
+    }
+    if (flag == 0) {
+      ans.push(i);
+    }
+  }
+  return ans;
+  console.log(ans);
+}

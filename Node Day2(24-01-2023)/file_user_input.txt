@@ -1,0 +1,66 @@
+						filehandle.js
+const express = require('express');
+const app = express();
+const cors = require("cors");
+
+app.use(express.json());
+app.use(cors());
+
+var http = require('http');
+var fs = require('fs');
+
+
+app.post('/', (req, res) => {
+  console.log(req.body);
+  const ans = getPrimes(req.body.n1);
+  res.json({ "ans":"done sucessfully" } );
+});
+
+app.listen(8000, () => {
+  console.log(`Server is running on port 8000.`);
+});
+
+function getPrimes(number) {
+    fs.appendFile('./file.html', number+"", function (err) {
+        if (err) throw err;
+          console.log('Saved!');
+          return "ok"
+      });
+      console.log("succed on server");
+}
+
+							file1.js
+
+import React, { useState } from "react";
+import axios from "axios";
+
+
+  function Ass1() {
+    const [n1, setn1] = useState("");
+    const [ans, setAns] = useState("");
+    function handleSubmit(event) {
+      event.preventDefault();
+      axios.post("http://localhost:8000",{ n1 }).then((res) => {
+          console.log(res.data); 
+          console.log('data added');
+         setAns(res.data.ans);
+
+       
+
+        });
+    }
+    return (
+    <>
+      <form onSubmit={handleSubmit}>
+      <input type="text" id="number" name="n2" value={n1} onChange={(e) => { setn1(e.target.value) }} />
+      <input type="submit" value="Submit" />
+      </form>
+    </>
+    )
+  }
+  export default Ass1;
+  
+
+
+
+
